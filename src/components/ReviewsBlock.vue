@@ -56,6 +56,7 @@
   h2 {
     margin-bottom: 50px;
     font-size: 45px;
+    text-align: center;
   }
   .review {
     border: 2px solid;
@@ -73,5 +74,17 @@
   }
   .reviews-wrapper {
     flex: 0 1 30%;
+  }
+  @media (max-width: 400px) {
+    .bg img {
+      max-width: 380px;
+    }
+    .bg div {
+      flex: 0 1 100%;
+      align-items: center;
+    }
+    .reviews-content {
+      display: block;
+    }
   }
 </style>

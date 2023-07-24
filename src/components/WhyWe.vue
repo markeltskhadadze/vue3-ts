@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {computed} from "vue"
+  import { computed } from "vue"
 
   const getIcon = computed(() => {
     return '/'
@@ -37,5 +37,11 @@
   .why-image {
     max-width: 90px;
     max-height: 90px;
+  }
+  @media (max-width: 400px) {
+    .bg {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
 </style>

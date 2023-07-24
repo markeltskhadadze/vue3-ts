@@ -67,4 +67,9 @@ onMounted (() => {
     background: #000000;
     color: #ffffff;
   }
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 36px;
+    }
+  }
 </style>

@@ -24,7 +24,7 @@ import {ref, onMounted, type Ref, computed} from 'vue'
 <template>
   <div class="bg">
     <div class="flex flex-col gap-4 items-center">
-      <p class="counter-value">{{ getClientValue }} + клиентов</p>
+      <p class="counter-value">{{ getClientValue }}</p>
       <p class="counter-text">Клиенты</p>
     </div>
     <div class="flex flex-col gap-4 items-center">
@@ -53,5 +53,10 @@ import {ref, onMounted, type Ref, computed} from 'vue'
   }
   .counter-text {
     font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    .bg {
+      flex-direction: column;
+    }
   }
 </style>
