@@ -19,7 +19,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.use(VueAxios, axios)
-app.use(AOS.init())
+app.use(AOS.init)
 
 app.component('admin-layout', AdminLayout)
 app.component('base-layout', BaseLayout)

@@ -17,7 +17,7 @@
 <template>
   <div class="logs-block">
     <h2>Мы предоставляем лучшие услуги</h2>
-    <ServiceContent :services="services" />
+    <ServiceContent />
     <div class="flex justify-center">
       <button class="see-more">Посмотреть все</button>
     </div>

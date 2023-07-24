@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted, Ref, computed} from 'vue'
+import {ref, onMounted, type Ref, computed} from 'vue'
 
   let clientValue: Ref<number> = ref(2)
 
