@@ -38,7 +38,7 @@
     max-width: 90px;
     max-height: 90px;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     .bg {
       flex-direction: column;
       gap: 20px;

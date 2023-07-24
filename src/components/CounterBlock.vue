@@ -54,7 +54,7 @@ import {ref, onMounted, type Ref, computed} from 'vue'
   .counter-text {
     font-size: 20px;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     .bg {
       flex-direction: column;
     }

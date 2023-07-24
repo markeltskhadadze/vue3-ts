@@ -51,7 +51,7 @@
   .bg div {
     flex: 0 1 30%;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     .bg img {
       max-width: 290px;
     }
