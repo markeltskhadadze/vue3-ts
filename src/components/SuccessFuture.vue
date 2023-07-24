@@ -23,6 +23,11 @@
 </template>
 
 <style scoped>
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
   .bg {
     background: url('/1.jpeg');
     background-size: cover;
@@ -45,5 +50,14 @@
   }
   .bg div {
     flex: 0 1 30%;
+  }
+  @media (max-width: 400px) {
+    .bg img {
+      max-width: 290px;
+    }
+    .bg div {
+      flex: 0 1 100%;
+      align-items: center;
+    }
   }
 </style>
