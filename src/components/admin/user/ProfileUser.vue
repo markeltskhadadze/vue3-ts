@@ -1,31 +1,36 @@
 <script setup lang="ts">
 import { profile } from '../../../stores/profile'
 import { ref, type Ref, onMounted, toRaw } from 'vue'
-import { type TProfile } from '../../../types'
 
 const userProfile = profile()
 
 const edit = ref<boolean>(false)
 const name: Ref<string> = ref('')
 const password: Ref<string> = ref('')
+const id = ref<string>('')
 
 const profileUser = ref(toRaw(userProfile.profile))
 
-function editUser (): void {
-  edit.value ? edit.value = false : edit.value = true
+function editUser (userId: string): void {
+  if (edit.value) {
+    edit.value = false
+    id.value = ''
+  } else {
+    edit.value = true
+    id.value = userId
+  }
 }
 
-// async function editUserData () {
-//   await userProfile.updateUser({
-//     _id: userProfile.profile._id,
-//     name: name.value,
-//     password: password.value
-//   })
-// }
+async function editUserData () {
+  await userProfile.updateUser({
+    _id: id.value,
+    name: name.value,
+    password: password.value
+  })
+}
 
 onMounted (async () => {
   await userProfile.getProfile()
-  console.log(profileUser)
 }) 
 </script>
 
@@ -35,19 +40,19 @@ onMounted (async () => {
       <div class="user-table">
         <div v-if="!edit">
           <div v-for="(user, index) in profileUser" :key="index">
-            <p @click="editUser" class="text-right mb-0 edit">Edit</p>
+            <p @click="editUser(user._id)" class="text-right mb-0 edit">Edit</p>
             <p>id: {{ user._id }}</p>
             <p>Name: {{ user.name }}</p>
             <p>Password: *********</p>
           </div>
         </div>
         <div v-if="edit">
-          <p @click="editUser" class="text-right mb-0 edit">Close</p>
-          <input type="text">
-          <input type="text" v-model="name" :placeholder=profile.name>
-          <input type="text" v-model="password" placeholder="*********">
-          <button>Edit</button>
-          <!-- <button @click="editUserData">Edit</button> -->
+          <div v-for="(user, index) in profileUser" :key="index">
+            <p @click="editUser(user._id)" class="text-right mb-0 edit">Close</p>
+            <input type="text" v-model="name" :placeholder=user.name>
+            <input type="text" v-model="password" placeholder="Enter new password">
+            <button @click="editUserData">Edit</button>
+          </div>
         </div>
       </div>
     </div>
