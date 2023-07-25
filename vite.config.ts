@@ -8,7 +8,9 @@ import sitemap from 'vite-plugin-sitemap'
 export default defineConfig({
   plugins: [
     vue(),
-    sitemap()
+    sitemap({
+      hostname: 'https://zingy-biscuit-0eb0d8.netlify.app/'
+    })
   ],
   resolve: {
     alias: {
