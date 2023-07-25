@@ -21,7 +21,7 @@ onMounted(() => {
 <template>
   <section class="admin-panel">
     <HeaderAdmin />
-    <div class="flex">
+    <div class="flex justify-center">
       <SideBar />
       <div class="container-fluid page-body-wrapper">
         <div class="main-panel">
