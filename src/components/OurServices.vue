@@ -10,14 +10,13 @@
 
   onMounted (async () => {
     await homeData.getServices()
-    console.log(homeData.services)
   })
 </script>
 
 <template>
   <div class="logs-block">
     <h2>Мы предоставляем лучшие услуги</h2>
-    <ServiceContent />
+    <ServiceContent :services="services" />
     <div class="flex justify-center">
       <button class="see-more">Посмотреть все</button>
     </div>

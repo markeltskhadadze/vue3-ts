@@ -2,12 +2,12 @@
   import { type PropType, computed } from 'vue'
   import { type TReviews } from '../../types'
 
-  // const props = defineProps({
-  //   services: {
-  //     type: Object as PropType<TReviews>,
-  //     required: true
-  //   }
-  // })
+  const props = defineProps({
+    services: {
+      type: Array as PropType<TReviews[]>,
+      required: true
+    }
+  })
 
   const getIcon = computed(() => {
     return '/'
@@ -15,22 +15,20 @@
 </script>
 
 <template>
-  <div>
     <div class="flex justify-center flex-wrap service-block">
-<!--      <div-->
-<!--          data-aos="flip-up"-->
-<!--          data-aos-easing="linear"-->
-<!--          data-aos-duration="500"-->
-<!--          v-for="(service, index) in props.services"-->
-<!--          :key="index"-->
-<!--          class="service-content"-->
-<!--      >-->
-<!--        <img class="avatar" :src="getIcon + 'img_569204.png'" alt="">-->
-<!--        <h3>{{ service.fullName }}</h3>-->
-<!--        <p>{{ service.reviewText }}</p>-->
-<!--      </div>-->
+      <div
+          data-aos="flip-up"
+          data-aos-easing="linear"
+          data-aos-duration="500"
+          v-for="(service, index) in props.services"
+          :key="index"
+          class="service-content"
+      >
+        <img class="avatar" :src="getIcon + 'img_569204.png'" alt="">
+        <h3>{{ service.fullName }}</h3>
+        <p>{{ service.reviewText }}</p>
+      </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
