@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AdminAuth from '../components/admin/AdminAuth.vue'
 import HomePage from '../components/HomePage.vue'
 import Profile from '../components/admin/user/ProfileUser.vue'
+import EditReviews from "../components/admin/EditReviews.vue"
 import DashboardAdmin from '../components/admin/DashboardAdmin.vue'
 
 const router = createRouter({
@@ -24,6 +25,14 @@ const router = createRouter({
       path: '/admin/profile',
       name: 'profile',
       component: Profile,
+      meta: {
+        layout: 'admin-layout'
+      }
+    },
+    {
+      path: '/admin/reviews',
+      name: 'edit-reviews',
+      component: EditReviews,
       meta: {
         layout: 'admin-layout'
       }

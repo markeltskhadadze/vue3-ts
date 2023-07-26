@@ -75,7 +75,7 @@
   .carousel__item {
     border: 2px solid;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
   }
@@ -99,8 +99,9 @@
     position: absolute;
     transition: all 0.3s ease-in;
     background: #d4d4d4;
-    min-width: 280px;
-    min-height: 300px;
+    max-width: 280px;
+    max-height: 300px;
+    gap: 20px;
   }
   .carousel__item[data-pos='0'] {
     z-index: 5;
@@ -111,11 +112,11 @@
     filter: blur(1px) grayscale(10%);
   }
   .carousel__item[data-pos='-1'] {
-    transform: translateX(-50%) scale(0.8);
+    transform: translateX(-90%) scale(0.8);
     z-index: 4;
   }
   .carousel__item[data-pos='1'] {
-    transform: translateX(60%) scale(0.8);
+    transform: translateX(90%) scale(0.8);
     z-index: 4;
   }
   .carousel__item[data-pos='-2'],
@@ -146,8 +147,8 @@
       padding: 50px;
     }
     .carousel__item {
-      min-width: 180px;
-      min-height: 200px;
+      max-width: 180px;
+      max-height: 200px;
     }
     h2 {
       font-size: 35px;

@@ -16,7 +16,7 @@ export const profile = defineStore('profile', () => {
   }
 
   async function updateUser (userData: TProfile) {
-    const result = await axios.post(`https://node-and-mongo-project.herokuapp.com/api/${userData._id}`, userData, { headers })
+    const result = await axios.post(`https://node-and-mongo-project.herokuapp.com/api/update/${userData._id}`, userData, { headers })
 
     profile.push(result.data)
   }

@@ -1,24 +1,30 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue'
-import { auth } from '../../stores/auth'
+  import { ref, type Ref, computed } from 'vue'
+  import { auth } from '../../stores/auth'
+  import NotificationMessage from '../notification/NotificationMessage.vue'
 
-const authAdmin = auth()
+  const authAdmin = auth()
 
-const name: Ref<string> = ref('')
-const password: Ref<string> = ref('')
+  const name: Ref<string> = ref('')
+  const password: Ref<string> = ref('')
 
-async function submitLoginData () {
-  if (name.value && password.value) {
-    await authAdmin.login({
-      name: name.value,
-      password: password.value
-    })
+  async function submitLoginData () {
+      if (name.value && password.value) {
+        await authAdmin.login({
+          name: name.value,
+          password: password.value
+        })
+      }
   }
-}
+
+  const message = computed(() => {
+    return authAdmin.errorMessage
+  })
 </script>
 
 <template>
   <div class="container-popup">
+    <NotificationMessage v-if="message" />
     <div class="popup-main">
       <div>
         <p class="popup-title">Login</p>
