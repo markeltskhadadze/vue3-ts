@@ -8,6 +8,7 @@ export const auth = defineStore('auth', () => {
   const token: Ref<string> = ref('')
   const isAuthenticated: Ref<boolean> = ref(false)
   const user = ref<TUserData[]> ([])
+  const errorMessage: Ref<string> = ref('')
 
   function setToken (tokenData: string | null | undefined) {
     if (tokenData) {
@@ -25,7 +26,7 @@ export const auth = defineStore('auth', () => {
       user.value.push(userData)
       router.push('/admin/dashboard')
     } catch (error) {
-      console.log(error)
+      errorMessage.value = 'Invalid Credentials'
     }
   }
 
@@ -43,6 +44,7 @@ export const auth = defineStore('auth', () => {
     isAuthenticated,
     login,
     user,
-    signOut
+    signOut,
+    errorMessage
   }
 })

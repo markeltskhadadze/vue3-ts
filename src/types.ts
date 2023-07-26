@@ -28,4 +28,4 @@ export type TProfile = {
 
 export type TUserData = Pick<TAuthor, 'name' | 'password'>
 
-// export type TServiceData = Pick<TPosts, '_id' | 'title' | 'description'>
+export type TNewReview = Pick<TReviews, 'fullName' | 'reviewText'>
