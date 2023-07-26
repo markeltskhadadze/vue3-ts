@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <h1>Наши тарифы</h1>
   <div class="flex justify-evenly flex-wrap gap-8 mt-12">
