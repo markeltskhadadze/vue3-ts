@@ -1,12 +1,10 @@
 <script setup lang="ts">
-  import {reactive, onMounted, toRaw, computed, type Ref, ref} from 'vue'
+  import { onMounted, computed, type Ref, ref} from 'vue'
   import { homePageData } from '../../stores/home-page-data'
   import { adminData } from '../../stores/admin-data'
-  import { type TReviews } from '../../types'
 
   const homeData = homePageData()
   const admin = adminData()
-  const reviews: TReviews[] = reactive(toRaw(homeData.reviews))
   let fullName: Ref<string> = ref('')
   let reviewText: Ref<string> = ref('')
 
@@ -15,7 +13,7 @@
   })
 
   const getReviews = computed(() => {
-    return reviews
+    return homeData.reviews
   })
 
   async function addReview () {

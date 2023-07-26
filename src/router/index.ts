@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AdminAuth from '../components/admin/AdminAuth.vue'
 import HomePage from '../components/HomePage.vue'
 import Profile from '../components/admin/user/ProfileUser.vue'
-import EditReviews from "../components/admin/EditReviews.vue"
+import EditReviews from '../components/admin/EditReviews.vue'
+import TariffsBlock from '../components/TariffsBlock.vue'
 import DashboardAdmin from '../components/admin/DashboardAdmin.vue'
 
 const router = createRouter({
@@ -12,6 +13,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomePage
+    },
+    {
+      path: '/tariffs',
+      name: 'traffic',
+      component: TariffsBlock,
     },
     {
       path: '/admin',
@@ -45,6 +51,10 @@ const router = createRouter({
         layout: 'admin-layout'
       }
     }
+    // {
+    //   path: "*",
+    //   component: PageNotFound
+    // }
   ]
 })
 
