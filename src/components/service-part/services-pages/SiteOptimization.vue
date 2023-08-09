@@ -2,7 +2,7 @@
 import BannerForService from "./BannerForService.vue"
 import { ref, type Ref } from 'vue'
 
-let mode: Ref<string> = ref('seoPage')
+let mode: Ref<string> = ref('siteOptimization')
 </script>
 
 <template>
@@ -28,11 +28,11 @@ let mode: Ref<string> = ref('seoPage')
 </template>
 
 <style scoped>
-  .content-container {
-    height: 100%;
-    width: 100%;
-    max-width: 1500px;
-    padding: 0 15px;
-    margin: 0 auto;
-  }
+.content-container {
+  height: 100%;
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
 </style>

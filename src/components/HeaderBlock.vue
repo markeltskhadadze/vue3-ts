@@ -26,6 +26,9 @@
           <li>
             <a href="/seo-audit" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">SEO-аудит сайта</a>
           </li>
+          <li>
+            <a href="/seo-optimization" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Продвижение веб-сайта</a>
+          </li>
         </ul>
       </div>
       <p class="header-link me-3">Блог</p>

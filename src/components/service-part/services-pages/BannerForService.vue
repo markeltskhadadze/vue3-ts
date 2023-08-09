@@ -1,6 +1,13 @@
 <script setup lang="ts">
-  import { computed, ref, Ref } from "vue"
+  import { computed, ref, type Ref, type PropType } from "vue"
   import { sendForm } from '../../../stores/send-form'
+
+  const props = defineProps({
+    mode: {
+      type: String as PropType<string>,
+      required: true
+    }
+  })
 
   const formData = sendForm()
   let phone: Ref<string> = ref('')
@@ -14,7 +21,7 @@
 </script>
 
 <template>
-  <div class="bg">
+  <div v-if="props.mode === 'seoPage'" class="bg">
     <div class="flex flex-col">
       <h1>SEO-аудит сайта</h1>
       <p class="service-content">Уверены ли вы, что здоровье вашего сайта в норме? Если нет, то мы поможем найти и исправить
@@ -34,6 +41,27 @@
         data-aos-easing="linear"
         data-aos-duration="1000"
         :src="getIcon + 'Untitled-3.png'"
+    />
+  </div>
+  <div v-if="props.mode === 'siteOptimization'" class="bg">
+    <div class="flex flex-col">
+      <h1>Продвижение веб-сайта</h1>
+      <p class="service-content">Обещать - не значит жениться, так и создать сайт - не значит стать видимым в поисковых системах. Для этого нужно грамотное продвижение сайта.</p>
+      <p class="service-content">Стоимость</p>
+      <p class="service-content">от 14 700 грн.</p>
+      <div class="call-back">
+        <p class="service-content">Наши специалисты всегда открыты для обратной связи.</p>
+        <div class="flex gap-4">
+          <input v-model="phone" placeholder="+38 (0__)-___-__-__" class="number-field" type="text" />
+          <button class="send-call-back" @click="sendPhone">Отправить заявку</button>
+        </div>
+      </div>
+    </div>
+    <img
+        data-aos="zoom-in-up"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        :src="getIcon + 'Untitled-7.png'"
     />
   </div>
 </template>
