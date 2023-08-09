@@ -5,6 +5,7 @@ import Profile from '../components/admin/user/ProfileUser.vue'
 import EditReviews from '../components/admin/EditReviews.vue'
 import TariffsBlock from '../components/TariffsBlock.vue'
 import DashboardAdmin from '../components/admin/DashboardAdmin.vue'
+import SEOAudit from '../components/service-part/services-pages/SEOAudit.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
       path: '/tariffs',
       name: 'traffic',
       component: TariffsBlock,
+    },
+    {
+      path: '/seo-audit',
+      name: 'seo-audit',
+      component: SEOAudit,
     },
     {
       path: '/admin',
