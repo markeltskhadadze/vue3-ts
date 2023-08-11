@@ -6,6 +6,7 @@
   import CounterBlock from './CounterBlock.vue'
   import AnalyticsBock from './AnalyticsBock.vue'
   import WhyWe from './WhyWe.vue'
+  import OurCases from './OurCases.vue'
 </script>
 
 <template>
@@ -16,6 +17,7 @@
   <SuccessFuture />
   <CounterBlock />
   <AnalyticsBock />
+  <OurCases />
   <WhyWe />
   <ReviewsBlock />
 </template>
