@@ -85,9 +85,9 @@ import {computed, ref, type Ref, onMounted, reactive, toRaw} from 'vue'
         <div class="cases-container">
           <div class="site-info">
             <div class="header-block">
-              <p>{{ siteInfo.project_name }}</p>
-              <p>Часто та посещения за 12 месяцев</p>
-              <p>{{ siteInfo.project_link }}</p>
+              <p>{{ siteInfo.name }}</p>
+              <p>Часто та посещения за {{ siteInfo.month }} месяцев</p>
+              <p>Ссылка на сайт</p>
             </div>
             <div class="chart-container">
               <ChartBar :selectedDataBar="siteInfo.chart_data" />
