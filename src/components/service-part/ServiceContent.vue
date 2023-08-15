@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import { type PropType, computed } from 'vue'
-  import { type TReviews } from '../../types'
+  import { type TService } from '../../types'
 
   const props = defineProps({
     services: {
-      type: Array as PropType<TReviews[]>,
+      type: Array as PropType<TService[]>,
       required: true
     }
   })
@@ -25,8 +25,8 @@
           class="service-content"
       >
         <img class="avatar" :src="getIcon + 'img_569204.png'" alt="">
-        <h3>{{ service.fullName }}</h3>
-        <p>{{ service.reviewText }}</p>
+        <h3>{{ service.title }}</h3>
+        <p>{{ service.description }}</p>
       </div>
     </div>
 </template>
