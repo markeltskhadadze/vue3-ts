@@ -43,8 +43,9 @@
       default: 80
     },
     selectedDataBar: {
-      type: Object as PropType<object>
-    },
+      type: Object as PropType<any>,
+      default: undefined
+    }
   })
 
 </script>
