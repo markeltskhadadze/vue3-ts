@@ -31,7 +31,7 @@ export const homePageData = defineStore('homePageData', () => {
   }
 
   async function getProjectInfo () {
-    const result = await axios.get<TProjectInfo[]>('https://node-and-mongo-project.herokuapp.com/api/project-info')
+    const result = await axios.get<TProjectInfo[]>('https://node-and-mongo-project.herokuapp.com/api/projects')
 
     projectInfo.push(...result.data)
     return projectInfo

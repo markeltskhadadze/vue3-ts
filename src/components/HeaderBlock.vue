@@ -6,6 +6,10 @@
     router.push('/admin')
   }
 
+  function goToHome() {
+    router.push('/')
+  }
+
   function goToTariffs() {
     router.push('/tariffs')
   }
@@ -31,7 +35,7 @@
           </li>
         </ul>
       </div>
-      <p class="header-link me-3">Блог</p>
+      <p @click="goToHome" class="header-link me-3">Блог</p>
     </div>
   </div>
 </template>
