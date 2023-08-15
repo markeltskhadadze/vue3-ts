@@ -1,35 +1,27 @@
 <script setup lang="ts">
-import { reactive, ref, type Ref, onMounted, onUnmounted, toRaw } from 'vue'
-import { homePageData } from '../stores/home-page-data'
+  import { reactive, ref, type Ref, onMounted, onUnmounted, toRaw } from 'vue'
+  import { homePageData } from '../stores/home-page-data'
+  import { type TPosts } from '../types'
 
-const homeData = homePageData()
+  const homeData = homePageData()
 
-let width: Ref<number> = ref(window.innerWidth)
+  let width: Ref<number> = ref(window.innerWidth)
 
-type Posts = {
-  _id: string,
-  title: string,
-  description: string,
-  author?: Object,
-  date?: Date,
-  img?: string
-}
+  const posts: TPosts[] = reactive(toRaw(homeData.posts))
 
-const posts: Posts[] = reactive(toRaw(homeData.posts))
+  function updateWidth (): void {
+    width.value = window.innerWidth
+  }
 
-function updateWidth (): void {
-  width.value = window.innerWidth
-}
-
-onMounted (async () => {
-  window.addEventListener('resize', updateWidth)
-  await homeData.getPosts()
-})
+  onMounted (async () => {
+    window.addEventListener('resize', updateWidth)
+    await homeData.getPosts()
+  })
 
 
-onUnmounted(() => {
-  window.removeEventListener('resize', updateWidth)
-})
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth)
+  })
 </script>
 
 <template>
@@ -46,38 +38,38 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.possibilities-block {
-  flex: 50%;
-}
-hr {
-    margin: 1rem 0;
-    color: inherit;
-    border: 0;
-    border-top: 2px solid #000;
-    opacity: 0.25;
-    max-width: 50px;
-}
-h3 {
-  text-align: left;
-}
-.description {
-  text-align: left;
-  color: #ffffff;
-}
-.blogs-content {
-  margin: 80px 0px;
-}
-.blog-img {
-  width: 500px;
-}
-.blog-img-modile {
-  width: 250px;
-}
-.blog-width {
-  flex: 33.333%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
+  .possibilities-block {
+    flex: 50%;
+  }
+  hr {
+      margin: 1rem 0;
+      color: inherit;
+      border: 0;
+      border-top: 2px solid #000;
+      opacity: 0.25;
+      max-width: 50px;
+  }
+  h3 {
+    text-align: left;
+  }
+  .description {
+    text-align: left;
+    color: #ffffff;
+  }
+  .blogs-content {
+    margin: 80px 0px;
+  }
+  .blog-img {
+    width: 500px;
+  }
+  .blog-img-modile {
+    width: 250px;
+  }
+  .blog-width {
+    flex: 33.333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
 </style>

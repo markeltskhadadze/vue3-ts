@@ -4,19 +4,6 @@
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-  const data = ref({
-    labels: ['January', 'February', 'March', 'April', 'May'],
-    datasets: [
-      {
-        label: 'Sales',
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-        data: [10, 15, 7, 12, 9],
-      },
-    ],
-  })
-
   const options = ref({
     responsive: true,
     maintainAspectRatio: false,
@@ -54,12 +41,15 @@
     height: {
       type: Number as PropType<number>,
       default: 80
-    }
+    },
+    selectedDataBar: {
+      type: Object as PropType<object>
+    },
   })
 
 </script>
 <template>
-  <Bar :data="data"
+  <Bar :data="props.selectedDataBar"
        :options="options"
        :chart-id="props.chartId"
        :dataset-id-key="props.datasetIdKey"
