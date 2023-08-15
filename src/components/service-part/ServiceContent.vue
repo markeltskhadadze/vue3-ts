@@ -76,7 +76,6 @@
     flex: 0 1 20%;
     background: #ffff;
     justify-content: center;
-    max-height: 340px;
     min-width: 450px;
     border: 2px solid #EBF2FF;
     border-radius: 30px;
