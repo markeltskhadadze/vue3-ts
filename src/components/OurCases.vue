@@ -1,14 +1,18 @@
 <script setup lang="ts">
-  import { computed, ref, type Ref, onMounted } from 'vue'
+import {computed, ref, type Ref, onMounted, reactive, toRaw} from 'vue'
   import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+  import { homePageData } from '../stores/home-page-data'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import ChartBar from './chart-bar/ChartBar.vue'
   import 'swiper/css'
   import 'swiper/css/navigation'
   import 'swiper/css/pagination'
   import 'swiper/css/scrollbar'
+  import { type TProjectInfo } from "@/types";
 
   const modules = [Navigation, Pagination, Scrollbar, A11y]
+  const homeData = homePageData()
+  const projectInfo: TProjectInfo[] = reactive(toRaw(homeData.projectInfo))
   const width: Ref<number> = ref(0)
   const testArray = ref([
     {
@@ -63,8 +67,9 @@
     }
   })
 
-  onMounted (() => {
+  onMounted (async () => {
     width.value = window.innerWidth
+    await homeData.getProjectInfo()
   })
 </script>
 
@@ -80,9 +85,9 @@
         <div class="cases-container">
           <div class="site-info">
             <div class="header-block">
-              <p>{{ siteInfo.name }}</p>
-              <p>Часто та посещения за {{ siteInfo.month }} месяцев</p>
-              <p>Ссылка на сайт</p>
+              <p>{{ siteInfo.project_name }}</p>
+              <p>Часто та посещения за 12 месяцев</p>
+              <p>{{ siteInfo.project_link }}</p>
             </div>
             <div class="chart-container">
               <ChartBar :selectedDataBar="siteInfo.chart_data" />

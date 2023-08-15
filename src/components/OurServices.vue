@@ -2,11 +2,11 @@
   import ServiceContent from './service-part/ServiceContent.vue'
   import { reactive, onMounted, toRaw } from 'vue'
   import { homePageData } from '../stores/home-page-data'
-  import { type TReviews } from '../types'
+  import { type TService } from '../types'
 
   const homeData = homePageData()
 
-  const services: TReviews[] = reactive(toRaw(homeData.services))
+  const services: TService[] = reactive(toRaw(homeData.services))
 
   onMounted (async () => {
     await homeData.getServices()
