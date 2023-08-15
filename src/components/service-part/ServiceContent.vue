@@ -40,7 +40,7 @@
               data-aos-duration="500"
               class="service-content"
           >
-            <img class="avatar" :src="getIcon + 'img_569204.png'" alt="">
+            <img class="avatar" :src="getIcon + 'seo2.png'" alt="">
             <div class="content-block">
                 <h3>{{ service.title }}</h3>
                 <p>{{ service.description }}</p>
@@ -64,8 +64,8 @@
     padding: 0 20px 20px 20px;
   }
   .avatar {
-    max-width: 115px;
-    max-height: 115px;
+    max-width: 250px;
+    max-height: 250px;
   }
   .service-content {
     padding: 10px;
